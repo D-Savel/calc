@@ -1,16 +1,14 @@
-const readlineSync = require('readline-sync')
 const chalk = require('chalk')
 const { calc } = require('./calc')
+const readlineSync = require('readline-sync')
 
 //Demander l'opération
-const op = readlineSync.question('Opération: ')
+const operatorString = readlineSync.question('Ecrire votre Opération (number opérateur(+-*/modulo) nombre, ex 3/2: ')
 
-//Demander nb1
-let nb1 = readlineSync.question('nb1: ')
+//Assigner nb1 ,op et nb2
+let listevar = operatorString.split('')
+let [nb1, op, nb2] = listevar
 nb1 = Number(nb1)
-
-//Demander nb1
-let nb2 = readlineSync.question('nb2: ')
 nb2 = Number(nb2)
 
 console.log(chalk.green.bold(calc(op, nb1, nb2)))
